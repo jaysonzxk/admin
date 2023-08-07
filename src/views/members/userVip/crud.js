@@ -62,22 +62,23 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '商品名称',
-        key: 'name',
+        title: '用户名称',
+        key: 'username',
+        align: 'center',
+        width: 200,
         search: {
           disabled: false
         },
-        minWidth: 100,
         type: 'input',
         form: {
           rules: [ // 表单校验规则
             {
               required: true,
-              message: '商品名称必填'
+              message: '用户名称'
             }
           ],
           component: {
-            placeholder: '商品名称'
+            placeholder: '用户名称'
           },
           itemProps: {
             class: { yxtInput: true }
@@ -85,14 +86,14 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '折扣',
-        key: 'discount',
-        // sortable: 'custom',
-        // minWidth: 90,
+        title: 'VIP名称',
+        key: 'vipCard',
+        align: 'center',
+        width: 200,
         search: {
           disabled: true
         },
-        type: 'number',
+        type: 'input',
         form: {
           rules: [ // 表单校验规则
             {
@@ -109,91 +110,89 @@ export const crudOptions = (vm) => {
           }
         }
       },
-
       {
-        title: '金额',
-        key: 'amount',
+        title: '到期时间',
+        key: 'expiration',
+        align: 'center',
+        width: 200,
         search: {
-          disabled: true
+          disabled: false
         },
-        minWidth: 110,
-        type: 'input',
+        type: 'datetime',
         form: {
-          rules: [
-            {
-              max: 20,
-              message: '金额',
-              trigger: 'blur'
-            },
-            // {
-            //   pattern: /^1[3-9]\d{9}$/,
-            //   message: '请输入正确的手机号码'
-            // }
-          ],
-          itemProps: {
-            class: { yxtInput: true }
-          },
-          component: {
-            placeholder: '金额'
-          }
-        }
-      },
-      {
-        title: '排序',
-        key: 'sort',
-        search: {
-          disabled: true
-        },
-        minWidth: 110,
-        type: 'input',
-        form: {
-          rules: [
-            {
-              max: 20,
-              message: '排序',
-              trigger: 'blur'
-            },
-          ],
-          component: {
-            span: 12,
-            placeholder: '排序'
-          }
-        }
-      },
-      {
-        title: '推荐',
-        key: 'isRecommend',
-        // sortable: 'custom',
-        // minWidth: 90,
-        search: {
-          disabled: true
-        },
-        type: 'radio',
-        dict: {
-          data: vm.dictionary('is_recommend')
-        },
-        form: {
-          value: 0,
+          value: 1,
           component: {
             span: 12
+          }
+        }
+      },
+      {
+        title: '开通日期',
+        key: 'create_datetime',
+        align: 'center',
+        width: 200,
+        search: {
+          disabled: false
+        },
+        type: 'datetime',
+        form: {
+          value: 1,
+          component: {
+            span: 12,
+          }
+        }
+      },
+      {
+        title: '更新时间',
+        key: 'update_datetime',
+        align: 'center',
+        width: 200,
+        search: {
+          disabled: false
+        },
+        type: 'datetime',
+        form: {
+          value: 1,
+          component: {
+            span: 12
+          }
+        }
+      },
+      {
+        title: '是否到期',
+        key: 'isExpired',
+        align: 'center',
+        search: {
+          disabled: false
+        },
+        width: 170,
+        type: 'radio',
+        dict: {
+          data: vm.dictionary('is_expired')
+        },
+        form: {
+          component: {
+            span: 12,
+            placeholder: '到期时间'
           }
         }
       },
        {
         title: '状态',
         key: 'status',
+         align: 'center',
         search: {
           disabled: false
         },
-        width: 70,
+        width: 170,
         type: 'radio',
         dict: {
           data: vm.dictionary('button_status_number')
         },
         form: {
-          value: 1,
           component: {
-            span: 12
+            span: 12,
+            placeholder: '到期时间'
           }
         }
       },
