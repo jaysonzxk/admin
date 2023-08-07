@@ -95,7 +95,7 @@ import * as api from './api'
 import { crudOptions } from './crud'
 import { d2CrudPlus } from 'd2-crud-plus'
 export default {
-  name: 'member',
+  name: 'vip',
   mixins: [d2CrudPlus.crud],
   data () {
     var validatePass = (rule, value, callback) => {

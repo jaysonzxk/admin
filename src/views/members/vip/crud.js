@@ -40,19 +40,6 @@ export const crudOptions = (vm) => {
           return !vm.hasPermissions('Delete')
         }
       },
-      custom: [
-        {
-          thin: true,
-          text: '密码重置',
-          size: 'small',
-          type: 'warning',
-          icon: 'el-icon-refresh-left',
-          show () {
-            return vm.hasPermissions('ResetPassword')
-          },
-          emit: 'resetPassword'
-        }
-      ]
     },
     viewOptions: {
       componentType: 'form'
@@ -93,8 +80,8 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '账号',
-        key: 'username',
+        title: '商品名称',
+        key: 'name',
         search: {
           disabled: false
         },
@@ -104,11 +91,11 @@ export const crudOptions = (vm) => {
           rules: [ // 表单校验规则
             {
               required: true,
-              message: '账号必填项'
+              message: '商品名称必填'
             }
           ],
           component: {
-            placeholder: '请输入账号'
+            placeholder: '商品名称'
           },
           itemProps: {
             class: { yxtInput: true }
@@ -116,64 +103,34 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '密码',
-        key: 'password',
-        minWidth: 90,
-        type: 'input',
-        form: {
-          rules: [ // 表单校验规则
-            {
-              required: true,
-              message: '密码必填项'
-            }
-          ],
-          component: {
-            span: 12,
-            showPassword: true,
-            placeholder: '请输入密码'
-          },
-          value: vm.systemConfig('base.default_password'),
-          editDisabled: true,
-          itemProps: {
-            class: { yxtInput: true }
-          }
-        },
-        disabled: true,
-        valueResolve (row, key) {
-          if (row.password) {
-            row.password = vm.$md5(row.password)
-          }
-        }
-      },
-      {
-        title: '姓名',
-        key: 'name',
-        sortable: 'custom',
-        minWidth: 90,
+        title: '折扣',
+        key: 'discount',
+        // sortable: 'custom',
+        // minWidth: 90,
         search: {
           disabled: false
         },
-        type: 'input',
+        type: 'number',
         form: {
           rules: [ // 表单校验规则
             {
               required: true,
-              message: '姓名必填项'
+              message: '折扣'
             }
           ],
           component: {
             span: 12,
-            placeholder: '请输入姓名'
+            placeholder: '折扣'
           },
           itemProps: {
             class: { yxtInput: true }
           }
         }
       },
-      
+
       {
-        title: '手机号码',
-        key: 'mobile',
+        title: '金额',
+        key: 'amount',
         search: {
           disabled: false
         },
@@ -183,109 +140,81 @@ export const crudOptions = (vm) => {
           rules: [
             {
               max: 20,
-              message: '请输入正确的手机号码',
+              message: '金额',
               trigger: 'blur'
             },
-            {
-              pattern: /^1[3-9]\d{9}$/,
-              message: '请输入正确的手机号码'
-            }
+            // {
+            //   pattern: /^1[3-9]\d{9}$/,
+            //   message: '请输入正确的手机号码'
+            // }
           ],
           itemProps: {
             class: { yxtInput: true }
           },
           component: {
-            placeholder: '请输入手机号码'
-          }
-        }
-      }, {
-        title: '邮箱',
-        key: 'email',
-        minWidth: 180,
-        form: {
-          rules: [
-            {
-              type: 'email',
-              message: '请输入正确的邮箱地址',
-              trigger: ['blur', 'change']
-            }
-          ],
-          component: {
-            placeholder: '请输入邮箱'
+            placeholder: '金额'
           }
         }
       },
       {
-        title: '性别',
-        key: 'gender',
+        title: '排序',
+        key: 'sort',
+        search: {
+          disabled: false
+        },
+        minWidth: 110,
+        type: 'input',
+        form: {
+          rules: [
+            {
+              max: 20,
+              message: '排序',
+              trigger: 'blur'
+            },
+          ],
+          component: {
+            span: 12,
+            placeholder: '排序'
+          }
+        }
+      },
+      {
+        title: '推荐',
+        key: 'isRecommend',
+        // sortable: 'custom',
+        // minWidth: 90,
+        search: {
+          disabled: false
+        },
         type: 'radio',
-        width: 70,
         dict: {
-          data: vm.dictionary('gender')
+          data: vm.dictionary('is_recommend')
+        },
+        form: {
+          value: 0,
+          component: {
+            span: 12
+          }
+        }
+      },
+       {
+        title: '状态',
+        key: 'status',
+        search: {
+          disabled: false
+        },
+        width: 70,
+        type: 'radio',
+        dict: {
+          data: vm.dictionary('button_status_number')
         },
         form: {
           value: 1,
           component: {
             span: 12
           }
-        },
-        component: { props: { color: 'auto' } } // 自动染色
-      }, {
-        title: '用户类型',
-        key: 'user_type',
-        search: {
-          disabled: false
-        },
-        width: 145,
-        type: 'select',
-        dict: {
-          data: vm.dictionary('user_type')
-        },
-        form: {
-          show: false,
-          value: 0,
-          component: {
-            span: 12
-          }
-        }
-      }, {
-        title: '状态',
-        key: 'is_active',
-        search: {
-          disabled: false
-        },
-        width: 70,
-        type: 'radio',
-        dict: {
-          data: vm.dictionary('button_status_bool')
-        },
-        form: {
-          value: true,
-          component: {
-            span: 12
-          }
         }
       },
-      {
-        title: '头像',
-        key: 'avatar',
-        type: 'avatar-cropper',
-        width: 60,
-        align: 'left',
-        form: {
-          component: {
-            props: {
-              elProps: { // 与el-uploader 配置一致
-                multiple: false,
-                limit: 1 // 限制5个文件
-              },
-              sizeLimit: 500 * 1024 // 不能超过限制
-            },
-            span: 24
-          },
-          helper: '限制文件大小不能超过500k'
-        }
-      }
     ].concat(vm.commonEndColumns({
       create_datetime: { showTable: false },
       update_datetime: { showTable: false }
