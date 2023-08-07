@@ -1,6 +1,6 @@
 <template>
   <d2-container>
-    <span class="user">欢迎【{{ info.username }}】登陆测试平台</span>
+    <span class="user">欢迎【{{ info.username }}】登陆管理平台</span>
     <!-- <suspended-library ref="suspendedLibrary">
       <div class="set-btn-class" slot="callbackButton">
         <el-button v-if="customizing" type="primary" icon="el-icon-check" round @click="save">完成&nbsp;&nbsp;
