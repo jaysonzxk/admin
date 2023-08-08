@@ -43,30 +43,30 @@
                     >
                     </el-input>
                   </el-form-item>
-                  <el-form-item
-                    prop="captcha"
-                    v-if="captchaState"
-                    :rules="{required: true,message: '请输入验证码',trigger: 'blur'}"
-                  >
-                    <el-input
-                      type="text"
-                      v-model="formLogin.captcha"
-                      placeholder="验证码"
-                      @keyup.enter.native="submit"
-                    >
-                      <template slot="append">
-                        <img
-                          class="login-code"
-                          style="cursor: pointer;"
-                          height="33px"
-                          width="145px"
-                          slot="suffix"
-                          :src="image_base"
-                          @click="getCaptcha"
-                        />
-                      </template>
-                    </el-input>
-                  </el-form-item>
+<!--                  <el-form-item-->
+<!--                    prop="captcha"-->
+<!--                    v-if="captchaState"-->
+<!--                    :rules="{required: true,message: '请输入验证码',trigger: 'blur'}"-->
+<!--                  >-->
+<!--                    <el-input-->
+<!--                      type="text"-->
+<!--                      v-model="formLogin.captcha"-->
+<!--                      placeholder="验证码"-->
+<!--                      @keyup.enter.native="submit"-->
+<!--                    >-->
+<!--                      <template slot="append">-->
+<!--                        <img-->
+<!--                          class="login-code"-->
+<!--                          style="cursor: pointer;"-->
+<!--                          height="33px"-->
+<!--                          width="145px"-->
+<!--                          slot="suffix"-->
+<!--                          :src="image_base"-->
+<!--                          @click="getCaptcha"-->
+<!--                        />-->
+<!--                      </template>-->
+<!--                    </el-input>-->
+<!--                  </el-form-item>-->
                 </el-form>
                 <button class="btn btn-primary btn-block" style="padding: 10px 10px;" @click="submit">
                   登录
