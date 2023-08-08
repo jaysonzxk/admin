@@ -83,8 +83,8 @@ function createService () {
             var res = await refreshTken()
             // 设置请求超时次数
             var config = response.config
-            util.cookies.set('token', res.data.access)
-            config.headers.Authorization = 'JWT ' + res.data.access
+            util.cookies.set('token', res.data.token)
+            config.headers.Authorization = 'JWT ' + res.data.token
             config.__retryCount = config.__retryCount || 0
             if (config.__retryCount >= config.retry) {
               // 如果重试次数超过3次则跳转登录页面
