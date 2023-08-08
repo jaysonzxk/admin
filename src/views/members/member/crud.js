@@ -95,6 +95,7 @@ export const crudOptions = (vm) => {
       {
         title: '账号',
         key: 'username',
+        align: 'center',
         search: {
           disabled: false
         },
@@ -118,6 +119,7 @@ export const crudOptions = (vm) => {
       {
         title: '密码',
         key: 'password',
+        align: 'center',
         minWidth: 90,
         type: 'input',
         form: {
@@ -149,6 +151,7 @@ export const crudOptions = (vm) => {
         title: '姓名',
         key: 'name',
         sortable: 'custom',
+        align: 'center',
         minWidth: 90,
         search: {
           disabled: false
@@ -170,10 +173,11 @@ export const crudOptions = (vm) => {
           }
         }
       },
-      
+
       {
         title: '手机号码',
         key: 'mobile',
+        align: 'center',
         search: {
           disabled: false
         },
@@ -201,6 +205,7 @@ export const crudOptions = (vm) => {
       }, {
         title: '邮箱',
         key: 'email',
+        align: 'center',
         minWidth: 180,
         form: {
           rules: [
@@ -216,9 +221,86 @@ export const crudOptions = (vm) => {
         }
       },
       {
+        title: '上级',
+        key: 'parent',
+        align: 'center',
+        minWidth: 180,
+        form: {
+          disabled: true,
+          rules: [
+            {
+              // type: 'text',
+              message: '请绑定邀请码',
+              // trigger: ['blur', 'change']
+            }
+          ],
+          component: {
+            placeholder: '请绑定邀请码'
+          }
+        }
+      },
+      {
+        title: '邀请码',
+        key: 'inviteCode',
+        align: 'center',
+        minWidth: 180,
+        form: {
+          disabled: true,
+          rules: [
+            {
+              // type: 'input',
+              message: '请绑定邀请码',
+              // trigger: ['blur', 'change']
+            }
+          ],
+          component: {
+            placeholder: '请绑定邀请码'
+          }
+        }
+      },
+      {
+        title: '上级邀请码',
+        key: 'parentInviteCode',
+        align: 'center',
+        minWidth: 180,
+        disabled: true,
+        form: {
+          // disabled: true,
+          rules: [
+            {
+              type: 'text',
+              message: '上级邀请码',
+              // trigger: ['blur', 'change']
+            }
+          ],
+          component: {
+            placeholder: '上级邀请码'
+          }
+        }
+      },
+      {
+        title: '积分',
+        key: 'points',
+        align: 'center',
+        minWidth: 180,
+        // form: {
+        //   rules: [
+        //     {
+        //       type: 'number',
+        //       message: '请绑定邀请码',
+        //       // trigger: ['blur', 'change']
+        //     }
+        //   ],
+        //   component: {
+        //     placeholder: '请绑定邀请码'
+        //   }
+        // }
+      },
+      {
         title: '性别',
         key: 'gender',
         type: 'radio',
+        align: 'center',
         width: 70,
         dict: {
           data: vm.dictionary('gender')
@@ -233,6 +315,7 @@ export const crudOptions = (vm) => {
       }, {
         title: '用户类型',
         key: 'user_type',
+        align: 'center',
         search: {
           disabled: false
         },
@@ -251,6 +334,7 @@ export const crudOptions = (vm) => {
       }, {
         title: '状态',
         key: 'is_active',
+        align: 'center',
         search: {
           disabled: false
         },
@@ -268,10 +352,11 @@ export const crudOptions = (vm) => {
       },
       {
         title: '头像',
+
         key: 'avatar',
         type: 'avatar-cropper',
         width: 60,
-        align: 'left',
+        align: 'center',
         form: {
           component: {
             props: {
