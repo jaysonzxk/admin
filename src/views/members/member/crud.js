@@ -268,7 +268,7 @@ export const crudOptions = (vm) => {
           // disabled: true,
           rules: [
             {
-              type: 'text',
+              // type: 'text',
               message: '上级邀请码',
               // trigger: ['blur', 'change']
             }

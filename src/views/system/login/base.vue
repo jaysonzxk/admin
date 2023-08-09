@@ -80,14 +80,14 @@ export default {
     /**
        * 获取验证码
        */
-    getCaptcha () {
-      if (this.captchaState !== undefined && !this.captchaState) return
-      api.getCaptcha().then((ret) => {
-        this.formLogin.captcha = null
-        this.captchaKey = ret.data.key
-        this.image_base = ret.data.image_base
-      })
-    },
+    // getCaptcha () {
+    //   if (this.captchaState !== undefined && !this.captchaState) return
+    //   api.getCaptcha().then((ret) => {
+    //     this.formLogin.captcha = null
+    //     this.captchaKey = ret.data.key
+    //     this.image_base = ret.data.image_base
+    //   })
+    // },
     /**
        * @description 提交表单
        */

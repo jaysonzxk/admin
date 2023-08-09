@@ -63,7 +63,7 @@ export const crudOptions = (vm) => {
       },
       {
         title: '用户名称',
-        key: 'username',
+        key: 'user',
         align: 'center',
         width: 200,
         search: {
