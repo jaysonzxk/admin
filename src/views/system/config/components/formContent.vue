@@ -286,7 +286,7 @@ export default {
           }
         ]
       },
-      uploadUrl: util.baseURL() + 'api/system/file/',
+      uploadUrl: util.baseURL() + '/admin/file/',
       uploadHeaders: {
         Authorization: 'JWT ' + util.cookies.get('token')
       },

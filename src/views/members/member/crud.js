@@ -265,7 +265,7 @@ export const crudOptions = (vm) => {
         minWidth: 180,
         disabled: true,
         form: {
-          // disabled: true,
+          disabled: true,
           rules: [
             {
               // type: 'text',

@@ -149,7 +149,7 @@ export default {
     return {
       position: 'left',
       activeName: 'userInfo',
-      action: util.baseURL() + 'api/system/file/',
+      action: util.baseURL() + '/admin/file/',
       headers: {
         Authorization: 'JWT ' + util.cookies.get('token')
       },
