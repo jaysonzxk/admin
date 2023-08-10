@@ -73,14 +73,12 @@ export default {
   },
   methods: {
     getCrudOptions () {
-      this.crud.searchOptions.form.user_type = 1
       return crudOptions(this)
     },
     pageRequest (query) {
       return api.GetList(query)
     },
     addRequest (row) {
-      row.user_type = 1
       return api.AddObj(row)
     },
     updateRequest (row) {

@@ -62,22 +62,23 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '商品名称',
+        title: '公告名称',
         key: 'name',
+        align: 'center',
         search: {
           disabled: false
         },
-        minWidth: 100,
+        width: 200,
         type: 'input',
         form: {
           rules: [ // 表单校验规则
             {
               required: true,
-              message: '商品名称必填'
+              message: '公告名称必填'
             }
           ],
           component: {
-            placeholder: '商品名称'
+            placeholder: '公告名称'
           },
           itemProps: {
             class: { yxtInput: true }
@@ -85,66 +86,39 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '折扣',
-        key: 'discount',
-        // sortable: 'custom',
-        // minWidth: 90,
+        title: '公告内容',
+        key: 'content',
+        align: 'left',
+        // show: false,
         search: {
           disabled: true
         },
-        type: 'number',
+        type: 'textarea',
         form: {
           rules: [ // 表单校验规则
             {
               required: true,
-              message: '折扣'
+              message: '公告内容必填'
             }
           ],
           component: {
-            span: 12,
-            placeholder: '折扣'
-          },
-          itemProps: {
-            class: { yxtInput: true }
-          }
-        }
-      },
-
-      {
-        title: '金额',
-        key: 'amount',
-        search: {
-          disabled: true
-        },
-        minWidth: 110,
-        type: 'input',
-        form: {
-          rules: [
-            {
-              max: 20,
-              message: '金额',
-              trigger: 'blur'
-            },
-            // {
-            //   pattern: /^1[3-9]\d{9}$/,
-            //   message: '请输入正确的手机号码'
-            // }
-          ],
-          itemProps: {
-            class: { yxtInput: true }
-          },
-          component: {
-            placeholder: '金额'
+            placeholder: '请输入公告内容',
+            showWordLimit: true,
+            maxlength: '1000',
+            props: {
+              type: 'textarea'
+            }
           }
         }
       },
       {
         title: '排序',
         key: 'sort',
+        align: 'center',
         search: {
           disabled: true
         },
-        minWidth: 110,
+        width: 70,
         type: 'input',
         form: {
           rules: [
@@ -160,27 +134,9 @@ export const crudOptions = (vm) => {
           }
         }
       },
-      {
-        title: '推荐',
-        key: 'isRecommend',
-        // sortable: 'custom',
-        // minWidth: 90,
-        search: {
-          disabled: true
-        },
-        type: 'radio',
-        dict: {
-          data: vm.dictionary('is_recommend')
-        },
-        form: {
-          value: 0,
-          component: {
-            span: 12
-          }
-        }
-      },
        {
         title: '状态',
+         align: 'center',
         key: 'status',
         search: {
           disabled: false
@@ -191,7 +147,7 @@ export const crudOptions = (vm) => {
           data: vm.dictionary('button_status_number')
         },
         form: {
-          value: 1,
+          value: 0,
           component: {
             span: 12
           }

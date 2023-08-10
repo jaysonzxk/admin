@@ -68,7 +68,7 @@ export const crudOptions = (vm) => {
         search: {
           disabled: false
         },
-        minWidth: 100,
+        width: 120,
         type: 'input',
         form: {
           rules: [ // 表单校验规则
@@ -92,7 +92,7 @@ export const crudOptions = (vm) => {
         search: {
           disabled: false
         },
-        minWidth: 100,
+        width: 200,
         type: 'input',
         form: {
           rules: [ // 表单校验规则
@@ -110,22 +110,42 @@ export const crudOptions = (vm) => {
         }
       },
       {
+        title: '图片',
+        key: 'file',
+        type: 'image-uploader',
+        width: 200,
+        align: 'center',
+        form: {
+          component: {
+            props: {
+              elProps: { // 与el-uploader 配置一致
+                multiple: false,
+                limit: 1 // 限制5个文件
+              },
+              sizeLimit: 500 * 1024 // 不能超过限制
+            },
+            span: 24
+          },
+          helper: '限制文件大小不能超过500k'
+        }
+      },
+      {
         title: '排序',
         key: 'sort',
         align: 'center',
         search: {
           disabled: true
         },
-        minWidth: 110,
+        width: 70,
         type: 'input',
         form: {
-          rules: [
-            {
-              max: 20,
-              message: '排序',
-              trigger: 'blur'
-            },
-          ],
+          // rules: [
+          //   {
+          //     max: 20,
+          //     message: '排序',
+          //     trigger: 'blur'
+          //   },
+          // ],
           component: {
             span: 12,
             placeholder: '排序'
@@ -137,7 +157,7 @@ export const crudOptions = (vm) => {
         key: 'jumpType',
         align: 'center',
         // sortable: 'custom',
-        // minWidth: 90,
+        width: 90,
         search: {
           disabled: false
         },
@@ -155,6 +175,7 @@ export const crudOptions = (vm) => {
        {
         title: '状态',
         key: 'status',
+         align: 'center',
         search: {
           disabled: false
         },
