@@ -1,5 +1,5 @@
 import Vue from 'vue'
-// import d2Crud from '@d2-project/d2-crud'
+// import d2Crud from '@d2-projects/d2-crud'
 import d2CrudX from 'd2-crud-x'
 import { d2CrudPlus } from 'd2-crud-plus'
 import {
@@ -244,7 +244,8 @@ Vue.prototype.commonEndColumns = function (param = {}) {
    */
   const showData = {
     description: {
-      showForm: (param.description && param.description.showForm) !== undefined ? param.description.showForm : true,
+      showForm: false,
+      // showForm: (param.description && param.description.showForm) !== undefined ? param.description.showForm : true,
       showTable: (param.description && param.description.showTable) !== undefined ? param.description.showTable : false
     },
     dept_belong_id: {
@@ -267,9 +268,38 @@ Vue.prototype.commonEndColumns = function (param = {}) {
     create_datetime: {
       showForm: (param.create_datetime && param.create_datetime.showForm) !== undefined ? param.create_datetime.showForm : false,
       showTable: (param.create_datetime && param.create_datetime.showTable) !== undefined ? param.create_datetime.showTable : true
-    }
+    },
+    reviewStatus: {
+      // showForm: (param.failureReason && param.failureReason.showForm) !== undefined ? param.failureReason.showForm : true,
+      showForm: (param.failureReason && param.failureReason.showForm) !== undefined ? param.failureReason.showForm : true,
+      showTable: (param.failureReason && param.failureReason.showTable) !== undefined ? param.failureReason.showTable : false
+    },
+    failureReason: {
+      showForm: (param.failureReason && param.failureReason.showForm) !== undefined ? param.failureReason.showForm : true,
+      showTable: (param.failureReason && param.failureReason.showTable) !== undefined ? param.failureReason.showTable : false
+    },
   }
   return [
+    {
+      title: '失败原因',
+      key: 'failureReason',
+      show: showData.failureReason.showTable,
+      search: {
+        disabled: true
+      },
+      type: 'textarea',
+      form: {
+        disabled: !showData.failureReason.showForm,
+        component: {
+          placeholder: '请输入内容',
+          showWordLimit: true,
+          maxlength: '200',
+          props: {
+            type: 'textarea'
+          }
+        }
+      }
+    },
     {
       title: '备注',
       key: 'description',
@@ -364,6 +394,7 @@ Vue.prototype.commonEndColumns = function (param = {}) {
     {
       title: '创建时间',
       key: 'create_datetime',
+      align: 'center',
       width: 160,
       search: {
         disabled: !showData.create_datetime.showForm,
@@ -381,7 +412,7 @@ Vue.prototype.commonEndColumns = function (param = {}) {
       },
       show: showData.create_datetime.showTable,
       type: 'datetime',
-      sortable: true,
+      // sortable: true,
       form: {
         disabled: !showData.create_datetime.showForm
       }

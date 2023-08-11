@@ -267,7 +267,7 @@ export default {
       // gridProps.columns = [...gridProps.columns,{ title: '操作', width: this.colButtons.width, slots: { default: 'operate' } }]
       // eslint-disable-next-line vue/no-side-effects-in-computed-properties
       this.gridOptions = gridProps
-
+      console.log('this.gridOptions', this.gridOptions)
       if (this.multiple) {
         defaultElProps.checkboxConfig = this.elProps.checkboxConfig
           ? this.elProps.checkboxConfig

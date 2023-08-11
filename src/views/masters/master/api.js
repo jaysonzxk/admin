@@ -1,5 +1,5 @@
 import { request, downloadFile } from '@/api/service'
-export const urlPrefix = '/admin/masterCheckIn/'
+export const urlPrefix = '/admin/master/'
 
 export function GetList (query) {
   return request({
