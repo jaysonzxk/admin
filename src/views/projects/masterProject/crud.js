@@ -62,23 +62,23 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '订单编号',
-        key: 'oderNo',
+        title: '项目名称',
+        key: 'project.name',
         align: 'center',
         search: {
           disabled: false
         },
-        width: 200,
+        width: 120,
         type: 'input',
         form: {
           rules: [ // 表单校验规则
             {
               required: true,
-              message: '订单编号'
+              message: '项目名称'
             }
           ],
           component: {
-            placeholder: '订单编号'
+            placeholder: '项目名称'
           },
           itemProps: {
             class: { yxtInput: true }
@@ -86,95 +86,116 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '渠道名称',
-        key: 'payChannel.name',
+        title: '技师名称',
+        key: 'user.name',
         align: 'center',
         search: {
           disabled: false
         },
-        width: 100,
+        width: 120,
         type: 'input',
         form: {
-        }
-      },
-      {
-        title: '项目名称',
-        key: 'masterProject.project.name',
-        align: 'center',
-        search: {
-          disabled: false
-        },
-        width: 200,
-        type: 'input',
-        form: {
-        }
-      },
-      {
-        title: '技师姓名',
-        key: 'masterProject.user.name',
-        align: 'center',
-        search: {
-          disabled: false
-        },
-        width: 100,
-        type: 'input',
-        form: {
-        }
-      },
-      {
-        title: '支付金额',
-        key: 'masterProject.project.price',
-        align: 'center',
-        search: {
-          disabled: false
-        },
-        width: 100,
-        type: 'input',
-        form: {
-        }
-      },
-
-      {
-        title: '支付状态',
-        key: 'orderStatus',
-        type: 'select',
-        width: 100,
-        align: 'center',
-        search: {
-          disabled: false
-        },
-        // type: 'radio',
-        dict: {
-          data: vm.dictionary('pay_order_status')
-        },
-        form: {
-        }
-      },
-       {
-        title: '创建时间',
-        key: 'create_datetime',
-         align: 'center',
-        search: {
-          disabled: true
-        },
-        width: 200,
-        type: 'datetime',
-        form: {
-          value: 0,
+          rules: [ // 表单校验规则
+            {
+              required: true,
+              message: '技师名称'
+            }
+          ],
           component: {
-            span: 12
+            placeholder: '技师名称'
+          },
+          itemProps: {
+            class: { yxtInput: true }
           }
         }
       },
       {
-        title: '更新时间',
-        key: 'update_datetime',
+        title: '现价',
+        key: 'project.price',
         align: 'center',
         search: {
-          disabled: true
+          disabled: false
         },
+        width: 120,
+        type: 'input',
+        form: {
+          rules: [ // 表单校验规则
+            {
+              required: true,
+              message: '现价'
+            }
+          ],
+          component: {
+            placeholder: '现价'
+          },
+          itemProps: {
+            class: { yxtInput: true }
+          }
+        }
+      },
+      {
+        title: '原价',
+        key: 'project.originPrice',
+        align: 'center',
+        search: {
+          disabled: false
+        },
+        width: 120,
+        type: 'input',
+        form: {
+          rules: [ // 表单校验规则
+            {
+              required: true,
+              message: '原价'
+            }
+          ],
+          component: {
+            placeholder: '原价'
+          },
+          itemProps: {
+            class: { yxtInput: true }
+          }
+        }
+      },
+      {
+        title: '预览图片',
+        key: 'project.img',
+        type: 'image-uploader',
         width: 200,
+        align: 'center',
+        form: {
+          component: {
+            props: {
+              elProps: { // 与el-uploader 配置一致
+                multiple: false,
+                limit: 1 // 限制5个文件
+              },
+              sizeLimit: 500 * 1024 // 不能超过限制
+            },
+            span: 24
+          },
+          helper: '限制文件大小不能超过500k'
+        }
+      },
+      {
+        title: '创建时间',
+        key: 'create_datetime',
         type: 'datetime',
+        width: 200,
+        align: 'center',
+      },
+       {
+        title: '状态',
+        key: 'status',
+         align: 'center',
+        search: {
+          disabled: false
+        },
+        width: 70,
+        type: 'radio',
+        dict: {
+          data: vm.dictionary('button_status_number')
+        },
         form: {
           value: 0,
           component: {
