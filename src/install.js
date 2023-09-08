@@ -281,19 +281,19 @@ Vue.prototype.commonEndColumns = function (param = {}) {
   }
   return [
     {
-      title: '失败原因',
-      key: 'failureReason',
-      show: showData.failureReason.showTable,
+      title: '备注',
+      key: 'description',
+      width: 400,
+      align: 'center',
       search: {
         disabled: true
       },
       type: 'textarea',
       form: {
-        disabled: !showData.failureReason.showForm,
         component: {
           placeholder: '请输入内容',
           showWordLimit: true,
-          maxlength: '200',
+          maxlength: '1000',
           props: {
             type: 'textarea'
           }

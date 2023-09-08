@@ -227,16 +227,6 @@ export const crudOptions = (vm) => {
         width: 70,
         form: {
           disabled: false,
-          rules: [
-            {
-              // type: 'text',
-              message: '请输入年龄',
-              // trigger: ['blur', 'change']
-            }
-          ],
-          component: {
-            placeholder: '请输入年龄'
-          }
         }
       },
       {
@@ -351,6 +341,25 @@ export const crudOptions = (vm) => {
         form: {
           show: false,
           value: 0,
+          component: {
+            span: 12
+          }
+        }
+      },
+      {
+        title: '推荐',
+        key: 'isRecommend',
+        align: 'center',
+        search: {
+          disabled: false
+        },
+        width: 70,
+        type: 'radio',
+        dict: {
+          data: vm.dictionary('is_recommend')
+        },
+        form: {
+          value: true,
           component: {
             span: 12
           }

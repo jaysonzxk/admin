@@ -86,6 +86,30 @@ export const crudOptions = (vm) => {
         }
       },
       {
+        title: '渠道编码',
+        key: 'payCode',
+        align: 'center',
+        search: {
+          disabled: false
+        },
+        width: 120,
+        type: 'input',
+        form: {
+          rules: [ // 表单校验规则
+            {
+              required: true,
+              message: '渠道编码'
+            }
+          ],
+          component: {
+            placeholder: '渠道编码'
+          },
+          itemProps: {
+            class: { yxtInput: true }
+          }
+        }
+      },
+      {
         title: '最小限额',
         key: 'minQuota',
         align: 'center',

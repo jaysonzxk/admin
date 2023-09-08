@@ -111,7 +111,7 @@ export const crudOptions = (vm) => {
       },
 
       {
-        title: '金额',
+        title: '原价',
         key: 'amount',
         search: {
           disabled: true
@@ -139,8 +139,8 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '排序',
-        key: 'sort',
+        title: '现价',
+        key: 'currentPrice',
         search: {
           disabled: true
         },
@@ -150,14 +150,42 @@ export const crudOptions = (vm) => {
           rules: [
             {
               max: 20,
-              message: '排序',
+              message: '现价',
               trigger: 'blur'
             },
+            // {
+            //   pattern: /^1[3-9]\d{9}$/,
+            //   message: '请输入正确的手机号码'
+            // }
           ],
+          itemProps: {
+            class: { yxtInput: true }
+          },
           component: {
-            span: 12,
-            placeholder: '排序'
+            placeholder: '金额'
           }
+        }
+      },
+      {
+        title: '排序',
+        key: 'sort',
+        search: {
+          disabled: true
+        },
+        minWidth: 110,
+        type: 'input',
+        form: {
+          // rules: [
+          //   {
+          //     max: 20,
+          //     message: '排序',
+          //     // trigger: 'blur'
+          //   },
+          // ],
+          // component: {
+          //   span: 12,
+          //   placeholder: '排序'
+          // }
         }
       },
       {

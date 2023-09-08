@@ -2,7 +2,7 @@ import { request } from '@/api/service'
 
 export function SYS_USER_LOGIN (data) {
   return request({
-    url: 'api/login/',
+    url: 'admin/login/',
     method: 'post',
     data
   })
@@ -10,7 +10,7 @@ export function SYS_USER_LOGIN (data) {
 
 export function SYS_USER_LOGOUT (data) {
   return request({
-    url: 'api/logout/',
+    url: 'admin/logout/',
     method: 'post',
     data
   })

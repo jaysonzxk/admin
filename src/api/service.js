@@ -76,7 +76,7 @@ function createService () {
             // return dataAxios.data
             return dataAxios
           case 401:
-            if (response.config.url === 'api/login/') {
+            if (response.config.url === 'admin/login/') {
               errorCreate(`${getErrorMessage(dataAxios.msg)}`)
               break
             }

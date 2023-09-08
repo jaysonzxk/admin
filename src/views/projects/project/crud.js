@@ -219,6 +219,46 @@ export const crudOptions = (vm) => {
           }
         }
       },
+      {
+        title: '禁忌说明',
+        key: 'prohibition',
+        width: 400,
+        align: 'center',
+        search: {
+          disabled: true
+        },
+        type: 'textarea',
+        form: {
+          component: {
+            placeholder: '请输入内容',
+            showWordLimit: true,
+            maxlength: '1000',
+            props: {
+              type: 'textarea'
+            }
+          }
+        }
+      },
+      {
+        title: '下单说明',
+        key: 'orderInstructions',
+        width: 400,
+        align: 'center',
+        search: {
+          disabled: true
+        },
+        type: 'textarea',
+        form: {
+          component: {
+            placeholder: '请输入内容',
+            showWordLimit: true,
+            maxlength: '1000',
+            props: {
+              type: 'textarea'
+            }
+          }
+        }
+      },
     ].concat(vm.commonEndColumns({
       create_datetime: { showTable: false },
       update_datetime: { showTable: false }
